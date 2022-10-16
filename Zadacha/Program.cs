@@ -1,6 +1,6 @@
 ﻿//Программа выводит эленеты массива в котором три или меньше символа.
 
-string[] array = {"Привет.", "Как", "дела", "?", "Вы", "разрешили", "ввести", "массив", "самой.", ";)"};
+string[] array = {"Привет.", "Как", "дела?", "Вы", "разрешили", "ввести", "массив", "самой.", ";)"};
 
 string[] newArray = Selection(array);
 
@@ -8,10 +8,12 @@ PrintArray(array);
 Console.Write(" -> ");
 PrintArray(newArray);
 
+
+
 string[] Selection(string[] arr)
 {
     int size = arr.Length;
-    string[] arrayFin = new string[size];
+    string[] arrayFin = new string[Long(arr)];
     int len = 3;
     int NumberOfCharacters = 0;
     int counterArrayFin = 0;
@@ -22,13 +24,25 @@ string[] Selection(string[] arr)
         {
             arrayFin[counterArrayFin] = arr[i];
             counterArrayFin++;
-        }
-        
+        }   
     }
-    
-
-
 return arrayFin;
+}
+
+int Long(string[] arr)
+{
+    int len = 3;
+    int NumberOfCharacters = 0;
+    int lon = 0;
+       for(int i = 0; i< arr.Length; i++)
+    {
+        NumberOfCharacters = arr[i].Length;
+        if(NumberOfCharacters <= len)
+        {
+            lon++;
+        }   
+    } 
+    return lon;
 }
 
 void PrintArray(string[] arr)
